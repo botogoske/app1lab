@@ -6,7 +6,8 @@ import { taskSchema } from "@/lib/task-schema";
 export const runtime = "nodejs";
 
 export async function GET() {
-  return NextResponse.json({ tasks: listTasks() });
+  const tasks = await listTasks();
+  return NextResponse.json({ tasks });
 }
 
 export async function POST(request: Request) {
@@ -20,6 +21,6 @@ export async function POST(request: Request) {
     );
   }
 
-  const task = createTask(parsed.data);
+  const task = await createTask(parsed.data);
   return NextResponse.json({ task }, { status: 201 });
 }

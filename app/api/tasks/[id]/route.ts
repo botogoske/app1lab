@@ -22,7 +22,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
     );
   }
 
-  const task = updateTask(params.id, parsed.data);
+  const task = await updateTask(params.id, parsed.data);
 
   if (!task) {
     return NextResponse.json({ message: "Tarefa não encontrada." }, { status: 404 });
@@ -32,7 +32,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
 }
 
 export async function DELETE(_request: Request, { params }: RouteParams) {
-  const removed = deleteTask(params.id);
+  const removed = await deleteTask(params.id);
 
   if (!removed) {
     return NextResponse.json({ message: "Tarefa não encontrada." }, { status: 404 });
