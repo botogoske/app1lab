@@ -23,3 +23,7 @@ dist/
 
 # typescript
 *.tsbuildinfo
+
+# local task store fallback
+data/tasks.json
+
