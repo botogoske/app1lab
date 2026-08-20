@@ -27,3 +27,6 @@ dist/
 # local task store fallback
 data/tasks.json
 
+# Editor directories and files
+.vscode/
+
